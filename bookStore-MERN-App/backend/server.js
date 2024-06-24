@@ -16,5 +16,5 @@ mongoose.connect(mongoDBURL)
         });
     })
     .catch(() => {
-
+         console.log("Server Connection Fail..");
     });
