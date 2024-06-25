@@ -1,20 +1,27 @@
 import express from "express";
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from "mongoose";
+import bookRoute from './routes/books.route.js';
 
 const app = express();
+
+// Middleware for parsing request Body
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.json({ msg: "Hello From Nodejs Server" })
 })
 
+app.get('/books',bookRoute);
+
+//  Database Connection
 mongoose.connect(mongoDBURL)
     .then(() => {
-        console.log('Server is now connected to Database');
+        console.log('Database Connected');
         app.listen(PORT, () => {
             console.log(`Server is Running on Port:${PORT}`);
         });
     })
     .catch(() => {
-         console.log("Server Connection Fail..");
+         console.log("Database connection Fail");
     });
