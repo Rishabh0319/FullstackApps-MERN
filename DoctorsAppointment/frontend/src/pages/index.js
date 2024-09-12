@@ -5,6 +5,7 @@ import Home from './Home'
 import Login from './Login'
 import MyAppointments from './MyAppointments'
 import MyProfile from './MyProfile'
+import Appointment from './Appointment'
 
 export {
    About,
@@ -13,5 +14,6 @@ export {
    Home,
    Login,
    MyAppointments,
-   MyProfile
+   MyProfile,
+   Appointment
 }
